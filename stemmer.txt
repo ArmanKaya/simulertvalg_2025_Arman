@@ -1,1 +1,0 @@
-/usr/local/bin/python3 /Users/arkaa008/Documents/GitHub/valg/index.py

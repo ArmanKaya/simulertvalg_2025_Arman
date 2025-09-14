@@ -1,0 +1,1 @@
+[['Arbeiderpartiet', 94, 'Rød-Grønn', 0], ['Fremskrittspartiet', 72, 'Rød-Grønn', 0], ['Høyre', 65.6, 0, 'Blå', 0], ['Sosialistisk Venstreparti', 17, 'Rød-Grønn', 0], ['Senterpartiet', 19, 'Rød-Grønn', 0], ['Rødt', 19, 'Rød-Grønn', 0], ['Miljøpartiet De Grønne', 12, 'Rød-Grønn', 0], ['Kristelig Folkeparti', 15, 'Blå', 0], ['Blankstemme', 1]]
