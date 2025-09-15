@@ -1,0 +1,3 @@
+[['Arbeiderpartiet', 4690], ['Fremskrittspartiet', 4197], ['H�yre', 2580], ['Sosialistisk Venstreparti', 964], ['Senterpartiet', 1007], ['R�dt', 888], ['Milj�partiet De Gr�nne', 809], ['Kristelig Folkeparti', 726], ['Blankstemme', 146], ['Andre partier', 1224]]R�d-Gr�nn: 8358, Bl�: 7503
+[['Arbeiderpartiet', 364], ['Fremskrittspartiet', 282], ['H�yre', 169], ['Sosialistisk Venstreparti', 64], ['Senterpartiet', 64], ['R�dt', 75], ['Milj�partiet De Gr�nne', 60], ['Kristelig Folkeparti', 55], ['Blankstemme', 15], ['Andre partier', 83]]
+ R�d-Gr�nn: 627, Bl�: 506

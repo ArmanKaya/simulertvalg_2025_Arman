@@ -13,22 +13,21 @@ partiene = [
     ["Blankstemme", 0],
     ["Andre partier", 0]
 ]
+ 
 
-Rød_Grønn = 0
 Blå = 0
+Rød_Grønn = 0
+
 
 
 halvparti = len(partiene) // 2 # brukt til å senere skille halveis så det ikke blir en lang liste.
 
 
 
+print("Hei, velkommen til valget 2025.")
+print("") #for mer bruker vennlighet
 
 
-
-def logstemmene(partiene, Rød_Grønn, Blå):
-    with open("ikkeibruk.txt", "a") as f:
-        f.write(str(partiene))
-        f.write(f"Rød-Grønn: {Rød_Grønn}, Blå: {Blå}\n")
 
 
 
@@ -37,61 +36,70 @@ def simstemme(Blå, Rød_Grønn):
     simlimit = int(input("Hvor mange stemmer vil du simulere?   "))
     
     while antallstemt < simlimit:
-        randomvalg = round(random.uniform(1, 100),1)
-        if randomvalg >= 1 and randomvalg <= 28:
-            partiene[0][1] += 1
-            antallstemt += 1
-            Rød_Grønn += 1
-        elif randomvalg >= 28 and randomvalg <= 51.8:
-            partiene[1][1] += 1
-            antallstemt += 1
-            Blå += 1
-        elif randomvalg >= 51.8 and randomvalg <= 66.4:
-            partiene[2][1] += 1
-            antallstemt += 1
-            Blå += 1   
-        elif randomvalg >= 66.4 and randomvalg <= 72:
-            partiene[3][1] += 1
-            antallstemt += 1
-            Rød_Grønn += 1
-        elif randomvalg >= 72 and randomvalg <= 77.6:
-            partiene[4][1] += 1
-            antallstemt += 1  
-            Rød_Grønn += 1
-        elif randomvalg >= 77.6 and randomvalg <= 82.9:
-            partiene[5][1] += 1
-            antallstemt += 1   
-            Rød_Grønn += 1
-        elif randomvalg >= 82.9 and randomvalg <= 87.6:
-            partiene[6][1] += 1
-            antallstemt += 1
-            Rød_Grønn += 1
-        elif randomvalg >= 87.6 and randomvalg <= 91.8:
-            partiene[7][1] += 1
-            antallstemt += 1  
-            Blå += 1      
-        elif randomvalg >= 91.8 and randomvalg <= 92.8:
-            partiene[8][1] += 1
-            antallstemt += 1  
-        elif randomvalg >= 92.8 and randomvalg <= 100:
-            partiene[9][1] += 1
-            antallstemt += 1
-             
-    logstemmene(partiene, Blå, Rød_Grønn)
+        randomvalg = round(random.uniform(1, 100), 1)  #random uniform for å lage en float(desimaltall) mellom 1 og 100 med 1 desimal
+
+        match randomvalg:
+            case x if 1 <= x <= 28:
+                partiene[0][1] += 1
+                antallstemt += 1
+                Rød_Grønn += 1
+            case x if 28 < x <= 51.8:
+                partiene[1][1] += 1
+                antallstemt += 1
+                Blå += 1
+            case x if 51.8 < x <= 66.4:
+                partiene[2][1] += 1
+                antallstemt += 1
+                Blå += 1
+            case x if 66.4 < x <= 72:
+                partiene[3][1] += 1
+                antallstemt += 1
+                Rød_Grønn += 1
+            case x if 72 < x <= 77.6:
+                partiene[4][1] += 1
+                antallstemt += 1
+                Rød_Grønn += 1
+            case x if 77.6 < x <= 82.9:
+                partiene[5][1] += 1
+                antallstemt += 1
+                Rød_Grønn += 1
+            case x if 82.9 < x <= 87.6:
+                partiene[6][1] += 1
+                antallstemt += 1
+                Rød_Grønn += 1
+            case x if 87.6 < x <= 91.8:
+                partiene[7][1] += 1
+                antallstemt += 1
+                Blå += 1
+            case x if 91.8 < x <= 92.8:
+                partiene[8][1] += 1
+                antallstemt += 1
+            case x if 92.8 < x <= 100:
+                partiene[9][1] += 1
+                antallstemt += 1
+
+
     print("Valget er ferdig, her er resultatene:    ") 
-    resultatene = sorted(partiene, key=lambda x: x[1], reverse=True)   
   
 
-    print("")
+    print("")# igjen for bruker vennlighet
     
             
     def beregnmandater():
         antall_mandater = 169
-        stmr_per_mndt = simlimit // antall_mandater
         
         for navn, stemmer in partiene:
-            mandater = round(stemmer / simlimit * antall_mandater)
-            print(f"{navn}: {mandater} mandater (stemmer: {stemmer})")
+            prosentpoeng = stemmer / simlimit * 100 #formelen for regne prosent poeng
+            mandater = round(stemmer / simlimit * antall_mandater) #formel for fordeling mandater
+            
+            if navn in ["Blankstemme", "Andre partier"]:
+                print(f"{navn}: | {prosentpoeng:.2f}% prosentpoeng | stemmer: {stemmer}")  #dersom navnet er lik blankstemme eller andre partier printer den ikke mandater
+                
+            else:
+                print(f"{navn}: {mandater} mandater | {prosentpoeng:.2f}% prosentpoeng | stemmer: {stemmer}") #printer prosentpoeng med 2 desimaler
+
+        
+
 
 
         
@@ -102,34 +110,20 @@ def simstemme(Blå, Rød_Grønn):
             print(f"Det ble rød-grønn seier med {Rød_Grønn} stemmer totalt, mens det ble tap på Blå med {Blå} stemmer.")
 
     beregnmandater()
-            
-        
-             
-              
+    
+    def logstemmene(partiene, Rød_Grønn, Blå):
+        with open("logs.txt", "a") as f:
+            f.write(str(partiene)) #log partiene
+            f.write(f"\n Rød-Grønn: {Rød_Grønn}, Blå: {Blå}\n") #log hvilken side som fikk mest stemmer
+    logstemmene(partiene, Rød_Grønn, Blå)            
+
+simstemme(Blå, Rød_Grønn)
+
+ 
 
 
 
-
-
-
-def preformvalget():
-    print("") ## bruker tomme print for å gjøre outputtet mer brukervenlig.
-    print("Hei, velkommen til valget 2025.")
-    hvaslaks = input("press 1 hvis du vill lage ditt eget valg med dine eller vennene dine sine stemmer (10 stemmer), eller press 2 hvis du vill ha et simulert valg der du kan velge antall stemmer?:    ")
-
-    if hvaslaks == "1":
-        egenvalg()
-    elif hvaslaks == "2":
-        simstemme(Blå, Rød_Grønn)
-    else: 
-        print("det er ikke et gyldig ett gyldig valg!")
-
-        
-preformvalget()
-
-
-
-#alternativ solution med oddsene fra listen
+#alternativ solution med oddsene fra listen ikke i bruk i denne koden
 """
     ["Arbeiderpartiet", 28, 0, "Rød-Grønn"],
     ["Fremskrittspartiet", 23.8, 0, "Rød-Grønn"],
@@ -140,4 +134,23 @@ preformvalget()
     ["Miljøpartiet De Grønne", 4.7, 0, "Rød-Grønn"],
     ["Kristelig Folkeparti", 4.2, 0, "Blå"],
     ["Blankstemme", 0.1, 0]
+"""
+
+"""  dersom jeg senere implementerer ett valg der man kan inputte egne stemmer istedet for simulert valg
+
+def preformvalget():
+    print("") 
+    print("Hei, velkommen til valget 2025.")
+    hvaslaks = input("press 1 hvis du vill lage ditt eget valg med dine eller vennene dine sine stemmer (10 stemmer), eller press 2 hvis du vill ha et simulert valg der du kan velge antall stemmer?:    ")
+
+    if hvaslaks == "1":
+        print("ikke klar")
+    elif hvaslaks == "2":
+        simstemme(Blå, Rød_Grønn)
+    else: 
+        print("det er ikke et gyldig ett gyldig valg!")
+        preformvalget()
+
+        
+preformvalget()
 """
