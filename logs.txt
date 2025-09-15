@@ -3,3 +3,10 @@
 dette er et bruker styrt valg 
 [['1. Arbeiderpartiet', 3369], ['2. Fremskrittspartiet', 2954], ['3. Høyre', 1882], ['4. Sosialistisk Venstreparti', 714], ['5. Senterpartiet', 700], ['6. Rødt', 638], ['7. Miljøpartiet De Grønne', 579], ['8. Kristelig Folkeparti', 504], ['9. Blankstemme', 117], ['10. Andre partier', 925]]
  Rød-Grønn: 5340, Blå: 6000
+[['1. Arbeiderpartiet', 0], ['2. Fremskrittspartiet', 0], ['3. Høyre', 0], ['4. Sosialistisk Venstreparti', 0], ['5. Senterpartiet', 0], ['6. Rødt', 0], ['7. Miljøpartiet De Grønne', 0], ['8. Kristelig Folkeparti', 0], ['9. Blankstemme', 0], ['10. Andre partier', 0]]
+ Rød-Grønn: 0, Blå: 0
+[['1. Arbeiderpartiet', 0], ['2. Fremskrittspartiet', 0], ['3. Høyre', 0], ['4. Sosialistisk Venstreparti', 0], ['5. Senterpartiet', 0], ['6. Rødt', 0], ['7. Miljøpartiet De Grønne', 0], ['8. Kristelig Folkeparti', 0], ['9. Blankstemme', 0], ['10. Andre partier', 0]]
+ Rød-Grønn: 0, Blå: 0
+dette er et bruker styrt valg 
+[['1. Arbeiderpartiet', 336583], ['2. Fremskrittspartiet', 296456], ['3. Høyre', 180964], ['4. Sosialistisk Venstreparti', 69840], ['5. Senterpartiet', 69668], ['6. Rødt', 65571], ['7. Miljøpartiet De Grønne', 58447], ['8. Kristelig Folkeparti', 52522], ['9. Blankstemme', 12264], ['10. Andre partier', 88916]]
+ Rød-Grønn: 529942, Blå: 600109
